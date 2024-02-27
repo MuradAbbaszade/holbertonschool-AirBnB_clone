@@ -12,7 +12,7 @@ class BaseModel:
         if kwargs:
             for i in kwargs.keys():
                 if i == "created_at" or i == "updated_at":
-                    date = datetime.fromisoformat(kwargs[i])
+                    date = datetime.strptime(kwargs[i], "%Y-%m-%dT%H:%M:%S.%f")
                     setattr(self, i, date)
                 elif i != "__class__":
                     setattr(self, i, kwargs[i])
