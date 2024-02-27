@@ -10,12 +10,12 @@ class BaseModel:
     def __init__(self, *args, **kwargs):
         """Init function"""
         if kwargs:
-            for i in kwargs.keys():
-                if i == "created_at" or i == "updated_at":
-                    date = datetime.strptime(kwargs[i], "%Y-%m-%dT%H:%M:%S.%f")
-                    setattr(self, i, date)
-                elif i != "__class__":
-                    setattr(self, i, kwargs[i])
+            for key, value in kwargs.items():
+                if key == "created_at" or key == "updated_at":
+                    date = datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f")
+                    setattr(self, key, date)
+                elif key != "__class__":
+                    setattr(self, key, value)
         else:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
@@ -34,7 +34,7 @@ class BaseModel:
         models.storage.save()
 
     def to_dict(self):
-        dict = self.__dict__
+        dict = self.__dict__.copy()
         dict["__class__"] = self.__class__.__name__
         dict["created_at"] = self.created_at.isoformat()
         dict["updated_at"] = self.updated_at.isoformat()
