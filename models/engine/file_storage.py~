@@ -1,0 +1,35 @@
+#!/usr/bin/python3
+"""File storage module"""
+import json
+import os
+
+
+class FileStorage:
+    """File storage class"""
+    __file_path = "test.json"
+    __objects = {}
+
+    def all(self):
+        """All function"""
+        return FileStorage.__objects
+
+    def new(self, obj):
+        """New function"""
+        key = "{}.{}".format(obj.__class__.__name__, obj.id)
+        FileStorage.__objects[key] = obj
+
+    def save(self):
+        """Save function"""
+        new_objects = {}
+        for key, value in FileStorage.__objects.items():
+            new_objects[key] = value.to_dict()
+        with open(self.__file_path, "w") as file:
+            file.write(json.dumps(self.__objects))
+
+    def reload(self):
+        """Reload function"""
+        if os.path.exists(self.__file_path):
+            with open(self.__file_path, "r") as file:
+                json_obj = json.load(file)
+            for key, value in json_obj:
+                FileStorage.__objects[key] = BaseModel(**json_obj[key])
