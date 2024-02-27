@@ -28,8 +28,10 @@ class FileStorage:
 
     def reload(self):
         """Reload function"""
-        if os.path.exists(self.__file_path):
+        try:
             with open(FileStorage.__file_path, "r") as file:
                 json_obj = json.load(file)
             for key in json_obj:
                 FileStorage.__objects[key] = BaseModel(**json_obj[key])
+        except Exception:
+            pass
