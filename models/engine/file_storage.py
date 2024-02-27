@@ -2,11 +2,12 @@
 """File storage module"""
 import json
 import os
+from models.base_model import BaseModel
 
 
 class FileStorage:
     """File storage class"""
-    __file_path = "test.json"
+    __file_path = "file.json"
     __objects = {}
 
     def all(self):
