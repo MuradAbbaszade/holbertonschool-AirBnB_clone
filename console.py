@@ -16,12 +16,12 @@ class HBNBCommand(cmd.Cmd):
         print()
         return True
 
-    def postcmd(self, stop, line):
-        """Post cmd function"""
-        self.doc_header = "Commands (type help <topic>):"
-        self.misc_header = "Miscellaneous help topics:"
-        self.undoc_header = "Undocumented commands:"
-        return stop
+    #def postcmd(self, stop, line):
+    #    """Post cmd function"""
+    #    self.doc_header = "Commands (type help <topic>):"
+    #    self.misc_header = "Miscellaneous help topics:"
+    #    self.undoc_header = "Undocumented commands:"
+    #    return stop
 
 
 if __name__ == '__main__':
