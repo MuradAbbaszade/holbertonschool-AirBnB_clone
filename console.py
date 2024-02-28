@@ -16,10 +16,6 @@ class HBNBCommand(cmd.Cmd):
         print()
         return True
 
-    def emptyline(self):
-        """Empty"""
-        return False
-
     def postcmd(self, stop, line):
         """Post cmd function"""
         self.doc_header = "Commands (type help <topic>):"
