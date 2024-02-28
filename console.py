@@ -18,7 +18,7 @@ class HBNBCommand(cmd.Cmd):
 
     def emptyline(self):
         """Empty"""
-        pass
+        return False
 
     def postcmd(self, stop, line):
         """Post cmd function"""
