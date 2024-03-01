@@ -87,11 +87,11 @@ class HBNBCommand(cmd.Cmd):
         storage.save()
 
     def do_all(self, arg):
-        storage.reload()
         result_list = []
         if arg is None:
             for i in storage.all().values():
                 print(str(i))
+            return
         if arg not in HBNBCommand.class_list:
             print("** class doesn't exist **")
             return
