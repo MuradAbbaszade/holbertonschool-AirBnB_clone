@@ -43,9 +43,9 @@ class HBNBCommand(cmd.Cmd):
                 return
             obj = eval(args[0])()
             print(obj.id)
+            storage.save()
             return
         print("** class name missing **")
-        storage.save()
 
     def do_show(self, args):
         """Do show"""
