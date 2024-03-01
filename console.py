@@ -34,6 +34,9 @@ class HBNBCommand(cmd.Cmd):
             if args == "BaseModel":
                 b = BaseModel()
                 print(b.id)
+            elif args == "User":
+                b = User()
+                print(b.id)
             else:
                 print("** class doesn't exist **")
         else:
