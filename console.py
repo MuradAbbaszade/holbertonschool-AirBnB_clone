@@ -89,11 +89,10 @@ class HBNBCommand(cmd.Cmd):
         result_list = []
         if arg is None:
             return storage.all()
-        if arg not in class_list:
+        if arg not in HBNBCommand.class_list:
             print("** class doesn't exist **")
             return
         keys = storage.all().keys()
-        
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
