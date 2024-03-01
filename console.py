@@ -87,6 +87,7 @@ class HBNBCommand(cmd.Cmd):
         storage.save()
 
     def do_all(self, arg):
+        storage.reload()
         result_list = []
         if arg is None:
             for i in storage.all().values():
