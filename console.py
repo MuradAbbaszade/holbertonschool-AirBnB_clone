@@ -3,6 +3,11 @@
 import cmd
 from models.base_model import BaseModel
 from models.user import User
+from models.place import Place
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.review import Review
 from models.__init__ import storage
 
 
@@ -131,5 +136,6 @@ class HBNBCommand(cmd.Cmd):
         setattr(obj, value, args[3])
         storage.save()
 
-        if __name__ == '__main__':
-            HBNBCommand().cmdloop()
+
+if __name__ == '__main__':
+    HBNBCommand().cmdloop()
