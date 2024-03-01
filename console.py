@@ -89,11 +89,14 @@ class HBNBCommand(cmd.Cmd):
     def do_all(self, arg):
         result_list = []
         if arg is None:
-            return storage.all()
+            for i in storage.all().values():
+                print(str(i))
         if arg not in HBNBCommand.class_list:
             print("** class doesn't exist **")
             return
-        keys = storage.all().keys()
+        for i in storage.all().values():
+            if i.__class__.__name__ == arg:
+                print(str(i))
 
     def do_update(self, args):
         args = args.split()
