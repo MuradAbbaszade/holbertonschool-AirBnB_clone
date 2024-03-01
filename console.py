@@ -9,7 +9,8 @@ from models.__init__ import storage
 class HBNBCommand(cmd.Cmd):
     """HBNBCommand class"""
     prompt = '(hbnb) '
-    class_list = ["BaseModel", "User"]
+    class_list = ["BaseModel", "User", "State",
+                  "Amenity", "Place", "Review"]
 
     def do_quit(self, arg):
         """Quit command"""
@@ -30,17 +31,15 @@ class HBNBCommand(cmd.Cmd):
 
     def do_create(self, args):
         """Do create"""
+        args = args.split()
         if args:
-            if args == "BaseModel":
-                b = BaseModel()
-                print(b.id)
-            elif args == "User":
-                b = User()
-                print(b.id)
-            else:
+            if args[0] not in HBNBCommand.class_list:
                 print("** class doesn't exist **")
-        else:
-            print("** class name missing **")
+                return
+            obj = eval(args[0])()
+            print(obj.id)
+            return
+        print("** class name missing **")
         storage.save()
 
     def do_show(self, args):
