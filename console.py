@@ -119,6 +119,7 @@ class HBNBCommand(cmd.Cmd):
         if len(args) < 4:
             print("** value missing **")
         obj = objects[key]
+        value = args[2]
         if isinstance(args[2], int):
             value = int(args[2])
         elif isinstance(args[2], float):
