@@ -91,6 +91,7 @@ class HBNBCommand(cmd.Cmd):
         storage.save()
 
     def do_all(self, args):
+        """Do all"""
         args = args.split()
         if len(args) == 0:
             for i in storage.all().values():
@@ -104,6 +105,7 @@ class HBNBCommand(cmd.Cmd):
                 print(str(i))
 
     def do_update(self, args):
+        """Do update"""
         args = args.split()
         if len(args) == 0:
             print("** class name missing **")
