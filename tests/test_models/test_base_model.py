@@ -24,8 +24,8 @@ class TestBaseModel(unittest.TestCase):
         self.assertIn('created_at', model_dict)
         self.assertIn('updated_at', model_dict)
         self.assertEqual(model_dict['__class__'], 'BaseModel')
-        #self.assertEqual(model_dict['created_at'], self.base_model.created_at.isoformat())
-        #self.assertEqual(model_dict['updated_at'], self.base_model.updated_at.isoformat())
+        # self.assertEqual(model_dict['created_at'], self.base_model.created_at.isoformat())
+        # self.assertEqual(model_dict['updated_at'], self.base_model.updated_at.isoformat())
 
         if __name__ == '__main__':
             unittest.main()
