@@ -86,17 +86,17 @@ class HBNBCommand(cmd.Cmd):
         del objects[key]
         storage.save()
 
-    def do_all(self, arg):
-        result_list = []
-        if arg is None:
+    def do_all(self, args):
+        args = args.split()
+        if len(args) == 0:
             for i in storage.all().values():
                 print(str(i))
             return
-        if arg not in HBNBCommand.class_list:
+        if args[0] not in HBNBCommand.class_list:
             print("** class doesn't exist **")
             return
         for i in storage.all().values():
-            if i.__class__.__name__ == arg:
+            if i.__class__.__name__ == args[0]:
                 print(str(i))
 
     def do_update(self, args):
