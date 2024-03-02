@@ -28,7 +28,7 @@ class TestUser(TestCase):
         self.inst.save()
         self.assertNotEqual(updated_at, self.inst.updated_at)
         with open("file.json", "r") as file:
-            self.assertIn("User.{}".format(self.inst.id), file.read())
+            self.assertIn("Place.{}".format(self.inst.id), file.read())
 
     def test_to_dict(self):
         new = self.inst.to_dict()
