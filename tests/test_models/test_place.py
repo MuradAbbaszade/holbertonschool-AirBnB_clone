@@ -13,10 +13,10 @@ class TestUser(TestCase):
         """
         Sets up the public attributes and methods for the TestUser class
         """
-        self.inst = User()
+        self.inst = Place()
         self.inst.created_at = datetime.now()
         self.inst.updated_at = datetime.now()
-        self.user = User()
+        self.user = Place()
 
     def test_id(self):
         """Tests the UUID for that instance"""
