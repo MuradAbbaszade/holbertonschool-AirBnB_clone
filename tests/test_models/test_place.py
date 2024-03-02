@@ -1,10 +1,10 @@
 #!/usr/bin/python3
 """
-Unittest for User Class attributes and methods
+Unittest for Place Class attributes and methods
 """
 from unittest import TestCase
 from datetime import datetime
-from models.place import
+from models.place import Place
 
 
 class TestUser(TestCase):
@@ -19,7 +19,8 @@ class TestUser(TestCase):
         self.user = User()
 
     def test_id(self):
-        self.model_test = User()
+        """Tests the UUID for that instance"""
+        self.model_test = Place()
         self.assertNotEqual(self.inst.id, self.model_test.id)
 
     def test_save(self):
@@ -40,36 +41,46 @@ class TestUser(TestCase):
         result = "[{}] ({}) {}".format(className, self.inst.id, self.inst.__dict__)
         self.assertEqual(result, self.inst.__str__())
 
-    def test_email(self):
-        self.assertTrue(hasattr(self.user, "email"))
-        self.assertEqual(self.user.email, "")
+    def test_city_id(self):
+        self.assertTrue(hasattr(self.inst, "city_id"))
+        self.assertEqual(self.inst.city_id, "")
 
-    def test_password(self):
-        self.assertTrue(hasattr(self.user, "password"))
-        self.assertEqual(self.user.password, "")
+    def test_user_id(self):
+        self.assertTrue(hasattr(self.inst, "user_id"))
+        self.assertEqual(self.inst.user_id, "")
 
-    def test_first_name(self):
-        self.assertTrue(hasattr(self.user, "first_name"))
-        self.assertEqual(self.user.first_name, "")
+    def test_name(self):
+        self.assertTrue(hasattr(self.inst, "name"))
+        self.assertEqual(self.inst.name, "")
 
-    def test_last_name(self):
-        self.assertTrue(hasattr(self.user, "last_name"))
-        self.assertEqual(self.user.last_name, "")
+    def test_description(self):
+        self.assertTrue(hasattr(self.inst, "description"))
+        self.assertEqual(self.inst.description, "")
 
+    def test_number_rooms(self):
+        self.assertTrue(hasattr(self.inst, "number_rooms"))
+        self.assertEqual(self.inst.number_rooms, 0)
 
-        """from models.base_model import BaseModel
+    def test_number_bathrooms(self):
+        self.assertTrue(hasattr(self.inst, "number_bathrooms"))
+        self.assertEqual(self.inst.number_bathrooms, 0)
 
+    def test_max_guest(self):
+        self.assertTrue(hasattr(self.inst, "max_guest"))
+        self.assertEqual(self.inst.max_guest, 0)
 
-class Place(BaseModel):
-    city_id = ""
-    user_id = ""
-    name = ""
-    description = ""
-    number_rooms = 0
-    number_bathrooms = 0
-    max_guest = 0
-    price_by_night = 0
-    latitude = 0.0
-    longitude = 0.0
-    amenity_ids = []
-"""
+    def test_price_by_night(self):
+        self.assertTrue(hasattr(self.inst, "price_by_night"))
+        self.assertEqual(self.inst.price_by_night, 0)
+
+    def test_latitude(self):
+        self.assertTrue(hasattr(self.inst, "latitude"))
+        self.assertEqual(self.inst.latitude, 0.0)
+
+    def test_longitude(self):
+        self.assertTrue(hasattr(self.inst, "longitude"))
+        self.assertEqual(self.inst.longitude, 0.0)
+
+    def test_amenity_ids(self):
+        self.assertTrue(hasattr(self.inst, "amenity_ids"))
+        self.assertEqual(self.inst.amenity_ids, [])
