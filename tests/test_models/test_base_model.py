@@ -2,6 +2,7 @@ import unittest
 from datetime import datetime
 from models.base_model import BaseModel
 import os
+from models import storage
 
 
 class TestBaseModel(unittest.TestCase):
