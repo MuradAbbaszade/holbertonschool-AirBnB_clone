@@ -22,6 +22,7 @@ class TestBaseModel(unittest.TestCase):
         base_model = BaseModel()
         base_model.name = "My_First_Model"
         base_model.my_number = 89
+        os.remove("file.json")
         base_model.save()
         self.assertTrue(os.path.exists("file.json"))
         self.assertIn("BaseModel." + base_model.id, storage.all())
