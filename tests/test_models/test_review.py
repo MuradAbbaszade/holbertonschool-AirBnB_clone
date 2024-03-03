@@ -49,5 +49,5 @@ class TestReview(TestCase):
         self.assertEqual(self.inst2.user_id, "")
 
     def test_text(self):
-        self.assertTrue(hasattr(self.b2, "text"))
-        self.assertEqual(self.b2.text, "")
+        self.assertTrue(hasattr(self.inst2, "text"))
+        self.assertEqual(self.inst2.text, "")
