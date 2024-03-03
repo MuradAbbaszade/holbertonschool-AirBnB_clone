@@ -30,7 +30,7 @@ class TestState(TestCase):
             self.assertIn("State.{}".format(self.inst1.id), file.read())
 
     def test_to_dict(self):
-        new = self.b1.to_dict()
+        new = self.inst1.to_dict()
         self.assertEqual(new["created_at"], self.inst1.created_at.isoformat())
         self.assertEqual(new["updated_at"], self.inst1.updated_at.isoformat())
         self.assertEqual(new['__class__'], self.inst1.__class__.__name__)
