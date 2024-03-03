@@ -24,6 +24,11 @@ class TestBaseModel(unittest.TestCase):
         self.assertIn('created_at', model_dict)
         self.assertIn('updated_at', model_dict)
         self.assertEqual(model_dict['__class__'], 'BaseModel')
+        
+    def test_str_method(self):
+        base_model = BaseModel()
+        str = "[BaseModel] ({}) {}".format(self.id, self.__dict__)
+        self.assertEqual(str(base_model), str)
 
         if __name__ == '__main__':
             unittest.main()
