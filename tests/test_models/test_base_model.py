@@ -11,7 +11,7 @@ class TestBaseModel(unittest.TestCase):
         self.assertIsInstance(self.base_model.updated_at, datetime)
 
     def test_save(self):
-        self.base_model = BaseModel()
+        base_model = BaseModel()
         old_updated_at = self.base_model.updated_at
         base_model.save()
         self.assertNotEqual(old_updated_at, base_model.updated_at)
