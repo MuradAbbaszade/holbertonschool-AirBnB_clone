@@ -18,15 +18,6 @@ class TestBaseModel(unittest.TestCase):
         base_model.save()
         self.assertNotEqual(old_updated_at, base_model.updated_at)
 
-    def test_save_method_with_storage(self):
-        base_model = BaseModel()
-        base_model.name = "My_First_Model"
-        base_model.my_number = 89
-        os.remove("file.json")
-        base_model.save()
-        self.assertTrue(os.path.exists("file.json"))
-        self.assertIn("BaseModel." + base_model.id, storage.all())
-
     def test_to_dict(self):
         self.base_model = BaseModel()
         model_dict = self.base_model.to_dict()
@@ -35,6 +26,14 @@ class TestBaseModel(unittest.TestCase):
         self.assertIn('created_at', model_dict)
         self.assertIn('updated_at', model_dict)
         self.assertEqual(model_dict['__class__'], 'BaseModel')
+    
+    def test_save_with_file_storage(self):
+        base_model = BaseModel()
+        base_model.name = "Model"
+        os.remove("file.json")
+        base_model.save()
+        self.assertTrue(os.path.exists("file.json"))
+        self.assertIn("BaseModel." + base_model.id, storage.all())
         
     def test_str_method(self):
         base_model = BaseModel()
