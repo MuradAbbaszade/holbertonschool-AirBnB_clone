@@ -10,11 +10,6 @@ This guide introduces the HBNB Console, a command-line tool for managing your Ai
 
 ### Getting Started
 
-**Installation:**
-
-1. Clone the repository: `git clone https://github.com/LGunay/holbertonschool-AirBnB_clone.git`
-2. Navigate to the project directory: `cd holbertonschool-AirBnB_clone`
-
 **Usage:**
 
 1. Open your terminal.
