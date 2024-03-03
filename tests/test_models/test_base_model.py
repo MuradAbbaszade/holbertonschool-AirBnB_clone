@@ -27,8 +27,8 @@ class TestBaseModel(unittest.TestCase):
         
     def test_str_method(self):
         base_model = BaseModel()
-        str = "[BaseModel] ({}) {}".format(self.id, self.__dict__)
-        self.assertEqual(str(base_model), str)
+        exp_str = "[BaseModel] ({}) {}".format(self.id, self.__dict__)
+        self.assertEqual(str(base_model), exp_str)
 
         if __name__ == '__main__':
             unittest.main()
